@@ -9,3 +9,11 @@
 .content{
   word-wrap:break-word;
 }
+
+.column-minus{
+  margin-top: -50px;
+}
+
+.columns-entry:nth-child(-n + 2) {
+ margin-top: -50px;
+}

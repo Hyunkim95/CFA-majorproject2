@@ -1,21 +1,27 @@
 
 <div class="container">
+
   <div class="columns">
-    <div class="column is-one-third">
-      <div class="box">
-          <img class = "is4by3" src="<%= @challenge.challengeimage %>" alt="">
-          <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-      </div>
-    </div>
-    <div class="column is-two-third">
 
-    <div class="column">
-      <div class="box">
-        hello
-      </div>
-    </div>
+    <div class="column is-7">
 
-      <div class="columns">
+      <div class="box">
+        <div class="tabs is-centered">
+            <ul>
+              <li class="tablinks" onclick="openlink(event, '1')" id="defaultOpen"><a>Prize Money</a></li>
+              <li class="tablinks" onclick="openlink(event, '2')"><a>Submission Deadline</a></li>
+              <li class="tablinks" onclick="openlink(event, '3')"><a>Rules</a></li>
+            </ul>
+          </div>
+
+          <div class="tab-content clearfix">
+            <div class="tabcontent" id="1">hello</div>
+            <div class="tabcontent" id="2">Hello2</div>
+            <div class="tabcontent" id="3">Hello3</div>
+          </div>
+      </div>
+
+      <div class="columns columns-entry">
         <% @solutions.each do |solution| %>
           <div class="column is-half">
 
@@ -55,14 +61,46 @@
             </div>
           <%end %>
 
-
-
-
       </div>
     </div>
+
+    <div class="column is-5">
+      <div class="box">
+          <img class = "is4by3" src="<%= @challenge.challengeimage %>" alt="">
+          <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+      </div>
+
+      <div class="columns is-mobile">
+        <div class="column column-minus">
+          <div class="box">
+            <%= render 'solutions/form', solution:@solution%>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
+<script>
+document.getElementById("defaultOpen").click();
+function openlink(evt, link) {
+  var i,
+    tabcontent,
+    tablinks;
 
+  tabcontent = document.getElementsByClassName("tabcontent");
 
-<%= render 'solutions/form', solution:@solution%>
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" is-active", "");
+  }
+
+  document.getElementById(link).style.display = "block";
+  evt.currentTarget.className += " is-active";
+}
+</script>
