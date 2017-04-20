@@ -1,0 +1,13 @@
+
+
+<% @solutions.each do |solution| %>
+  <%= link_to solution.description %>
+  <br>
+<% end %>
+
+<% @projects.each do |project| %>
+  <%= link_to project.description %>
+  <br>
+<% end %>
+
+<%= render 'projects/form', project: @project%>
