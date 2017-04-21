@@ -10,11 +10,7 @@ class ChallengesController < ApplicationController
   # GET /challenges/1
   # GET /challenges/1.json
   def show
-    @solutions = Challenge.find(params[:id]).solutions.order(created_at: :desc)
-    @projects = Project.where(challenge_id: @challenge.id).order(created_at: :desc)
-
-    @possible_solutions = @solutions + @projects
-
+    @solutions = Challenge.find(params[:id]).solutions
     @challenge = Challenge.find(params[:id])
     @solution = Solution.new
   end
