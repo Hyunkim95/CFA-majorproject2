@@ -1,6 +1,7 @@
 class Challenge < ApplicationRecord
   belongs_to :user
   has_many :solutions
+  has_and_belongs_to_many :projects
   mount_uploader :challengeimage, ChallengeimageUploader
   after_create :pre_project
 

@@ -1,9 +1,5 @@
 class Project < ApplicationRecord
   belongs_to :user
-  belongs_to :challenge
+  has_and_belongs_to_many :challenges
 
-end
-
-def count_word
-  @hash = self.description.strip.downcase.split(/[^\w']+/).group_by(&:to_s).map{|w| {w[0]=>w[1].count}}
 end
