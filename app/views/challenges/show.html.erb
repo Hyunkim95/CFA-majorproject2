@@ -28,7 +28,9 @@
             <div class="card">
               <div class="card-image">
                 <figure class="image is-4by3">
-                  <img src="http://bulma.io/images/placeholders/1280x960.png" alt="Image">
+                  <% solution.image.each do |image| %>
+                  <div><img src=<%= image %> alt="Image"></div>
+                  <% end %>
                 </figure>
               </div>
               <div class="card-content">
@@ -71,6 +73,7 @@
 </div>
 
 <script>
+
 document.getElementById("defaultOpen").click();
 function openlink(evt, link) {
   var i,
@@ -91,4 +94,5 @@ function openlink(evt, link) {
   document.getElementById(link).style.display = "block";
   evt.currentTarget.className += " is-active";
 }
+
 </script>
