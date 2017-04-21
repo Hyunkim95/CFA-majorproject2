@@ -11,10 +11,6 @@ class ChallengesController < ApplicationController
   # GET /challenges/1.json
   def show
     @solutions = Challenge.find(params[:id]).solutions
-    @projects = Project.where(challenge_id: @challenge.id)
-
-    @possible_solutions = @solutions + @projects
-
     @challenge = Challenge.find(params[:id])
     @solution = Solution.new
   end

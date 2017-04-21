@@ -1,9 +1,10 @@
 class Challenge < ApplicationRecord
   belongs_to :user
   has_many :solutions
-  has_and_belongs_to_many :projects
   mount_uploader :challengeimage, ChallengeimageUploader
   after_create :pre_project
+
+
 
   def count_word(input)
     array = input.description.strip.downcase.split(/[^\w']+/)
@@ -26,9 +27,9 @@ class Challenge < ApplicationRecord
         end
       end
 
-        if count/challenge_words.length > 0.6
-          project.update_attribute(:challenge_id, self.id)
-        end
+      if count > 2
+          Solution.create(description: project.description, user_id: project.user.id, challenge_id:self.id)
+      end
     end
   end
 end
