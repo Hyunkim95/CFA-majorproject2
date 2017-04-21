@@ -10,8 +10,8 @@ class ChallengesController < ApplicationController
   # GET /challenges/1
   # GET /challenges/1.json
   def show
-    @solutions = Challenge.find(params[:id]).solutions
-    @projects = Project.where(challenge_id: @challenge.id)
+    @solutions = Challenge.find(params[:id]).solutions.order(created_at: :desc)
+    @projects = Project.where(challenge_id: @challenge.id).order(created_at: :desc)
 
     @possible_solutions = @solutions + @projects
 
@@ -49,7 +49,7 @@ class ChallengesController < ApplicationController
   def update
     respond_to do |format|
       if @challenge.update(challenge_params)
-        format.html { redirect_to root_path, notice: 'Challenge was successfully updated.' }
+        format.html { redirect_to charges_new_path, notice: 'Challenge was successfully updated.' }
         format.json { render :show, status: :ok, location: @challenge }
       else
         format.html { render :edit }

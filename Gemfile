@@ -11,6 +11,8 @@ gem 'rails', '~> 5.0.2'
 gem  'devise'
 gem "bulma-rails", "~> 0.4.0"
 gem 'carrierwave', '~> 1.0'
+gem 'stripe'
+gem 'dotenv-rails', :groups => [:development, :test]
 gem 'mini_magick', '~> 4.3'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'

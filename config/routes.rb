@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
+  get 'charges/new'
+
+  get 'charges/create'
+
   resources :projects
+
+  resources :charges, only: [:new, :create]
 
   resources :challenges do
     member do
