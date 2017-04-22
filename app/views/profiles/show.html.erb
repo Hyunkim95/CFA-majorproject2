@@ -1,4 +1,7 @@
+
 <div class="container profile top-padding">
+
+
 
     <div class="spacer"></div>
 
@@ -7,6 +10,26 @@
         <div class="tile is-parent">
           <article class="tile is-child">
             <div class="columns">
+
+
+                <div class="column is-4">
+                  <div class="card text-">
+                    <div class="card-image">
+                      <figure class="image is-4by3">
+                        <img src="http://toolboard.org/static/img/flaticon/file-storage.png" alt="">
+                      </figure>
+                    </div>
+                    <div class="card-content has-text-centered">
+                      <div class="panel-block-item">
+                        <span class="description">
+                          Add Project
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
               <% @total_projects.each do |project| %>
               <div class="column is-4">
                 <%= link_to project_path(project) do%>
@@ -45,3 +68,5 @@
       </div>
     </div>
   </div>
+
+  <%= render 'projects/form', project: @project %>
