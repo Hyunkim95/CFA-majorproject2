@@ -1,106 +1,47 @@
+<div class="container profile top-padding">
 
-<div class="container">
-  <div class="columns">
+    <div class="spacer"></div>
 
-    <div class="column is-one-third">
-            <div class="card is-fullwidth">
-              <header class="card-header">
-              </header>
-              <div class="card-content">
-                <a class="card-avatar">
-                  <img src="https://pbs.twimg.com/profile_images/3005141692/dc8e1eb36b6cbd2b5726f63c50adf7f2.png" class="card-avatar-img">
-                </a>
-
-                <div class="card-user">
-                  <div class="card-user-name">
-                    <a href="#">John Smith</a>
-                  </div>
-                  <span>
-                    <a href="#">@<span>jsmith</span></a>
-                  </span>
+    <div class="tile is-ancestor">
+      <div class="tile is-vertical is-8">
+        <div class="tile is-parent">
+          <article class="tile is-child">
+            <div class="columns">
+              <% @total_projects.each do |project| %>
+              <div class="column is-4">
+                <%= link_to project_path(project) do%>
+                      <div class="card">
+                        <div class="card-image">
+                          <figure class="image is-4by3">
+                            <img src="<%= project.image %>" alt="Image">
+                          </figure>
+                        </div>
+                        <div class="card-content">
+                          <div class="panel-block-item">
+                            <span class="description">
+                              <%= truncate(project.description) %>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
                 </div>
-
-                <div class="card-stats">
-                  <ul class="card-stats-list">
-                    <li class="card-stats-item">
-                      <a href="#" title="9.840 Tweet">
-                        <span class="card-stats-key">Tweets</span>
-                        <span class="card-stats-val">1</span>
-                      </a>
-                    </li>
-                    <li class="card-stats-item">
-                      <a href="#/following" title="885 Following">
-                        <span class="card-stats-key">Following</span>
-                        <span class="card-stats-val">0</span>
-                      </a>
-                    </li>
-                    <li class="card-stats-item">
-                      <a href="#">
-                        <span class="card-stats-key">Followers</span>
-                        <span class="card-stats-val">0</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+              <% end %>
             </div>
-            <div class="spacer"></div>
-            <div class="box trending">
-              <p class="trend-title"><span class="title is-5">Total Money Made</span>
+          </article>
+        </div>
+      </div>
+      <div class="tile is-parent">
+        <article class="tile is-child box">
+          <div class="content">
+            <p class="title">Tall tile</p>
+            <p class="subtitle">With even more content</p>
+            <div class="content">
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
             </div>
           </div>
-
-
-    <div class="column">
-      <div class="box">
-
-        <div class="columns is-mobile">
-          <div class="column column-minus projects">
-            <article class="media">
-              <div class="media-content">
-                <div class="content">
-                  <br>
-                  <%= render 'projects/form', project: @project%>
-                </div>
-              </div>
-            </article>
-            <hr>
-          </div>
-        </div>
-
-
-  <% @total_projects.each do |project| %>
-
-        <div class="columns is-mobile">
-          <div class="column column-minus projects">
-            <article class="media">
-              <div class="media-left">
-                <figure class="image is-64x64">
-                <img src="http://bulma.io/images/placeholders/128x128.png" alt="Image">
-                </figure>
-              </div>
-              <div class="media-content">
-                <div class="content">
-                  <p>
-                  <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
-                  <br>
-                  <%= project.description %>
-                  </p>
-                </div>
-              </div>
-            </article>
-            <hr>
-          </div>
-          <% if project.instance_of? Project %>
-            <%= link_to 'Show', project_path(project)%>
-          <% else %>
-          <%= link_to 'Show', solution_path(project)%>
-          <% end %>
-        </div>
-
-  <% end %>
-
+        </article>
       </div>
     </div>
   </div>
-</div>

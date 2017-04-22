@@ -2,7 +2,13 @@ Rails.application.routes.draw do
 
   get 'charges/new'
 
+  get 'pages/developer_index'
+
+  get 'pages/business_owner_index'
+
   get 'charges/create'
+
+  root 'pages#developer_index'
 
   resources :projects
 
@@ -17,5 +23,5 @@ Rails.application.routes.draw do
   devise_for :users
   resources :profiles, only: [:show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'pages#index'
+  # root :to => 'passthrough#index'
 end
