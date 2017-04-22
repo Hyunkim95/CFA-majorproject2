@@ -1,98 +1,84 @@
+<div class="section">
+  <div class="container bottom-padding">
+    <div class="tile is-ancestor">
+      <div class="tile is-vertical is-8">
+        <div class="tile">
 
-<div class="container">
-
-  <div class="columns">
-
-    <div class="column is-7">
-
-      <div class="box">
-        <div class="tabs is-fullwidth">
-            <ul>
-              <li class="tablinks" onclick="openlink(event, '1')" id="defaultOpen"><a>Prize Money</a></li>
-              <li class="tablinks" onclick="openlink(event, '2')"><a>Submission Deadline</a></li>
-              <li class="tablinks" onclick="openlink(event, '3')"><a>Rules</a></li>
-            </ul>
+          <div class="tile is-parent">
+            <article class="tile is-child box is-info">
+              <p class="title">Title</p>
+              <figure class="image is-4by3">
+                <img src="<%= @challenge.challengeimage %>">
+              </figure>
+            </article>
           </div>
 
-          <div class="tab-content clearfix">
-            <div class="tabcontent" id="1">hello</div>
-            <div class="tabcontent" id="2">Hello2</div>
-            <div class="tabcontent" id="3">Hello3</div>
+          <div class="tile is-parent is-vertical">
+            <article class="tile is-child box is-primary">
+              <p class="title">Total Entries</p>
+              <p class="content"><%= @challenge.solutions.count %></p>
+            </article>
+            <article class="tile is-child box is-warning">
+              <p class="title">Submission Deadline</p>
+              <p class="subtitle">Aligned with the right tile</p>
+            </article>
           </div>
-      </div>
 
-      <div class="columns columns-entry">
-        <% @solutions.each do |solution| %>
-          <div class="column is-half">
-
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <% solution.image.each do |image| %>
-                  <div><img src=<%= image %> alt="Image"></div>
-                  <% end %>
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="content">
-                  <b><%= solution.title %></b>
-                  <%= solution.description %>
-                </div>
-                <div class='center'>
-                <%= form_for @challenge, :method => :PUT do |f| %>
-                  <%= f.hidden_field :solution, :value => solution.id %>
-                  <%= f.hidden_field :solved, :value => true %>
-                  <%= f.submit 'Choose', :class => 'button'%>
-                <% end %>
-                </div>
-              </div>
+        </div>
+        <div class="tile is-parent">
+          <article class="tile is-child box is-danger">
+            <p class="title">Description</p>
+            <div class="content">
+              <%= @challenge.description %>
             </div>
-
-            </div>
-          <%end %>
-
-      </div>
-    </div>
-
-    <div class="column is-5">
-      <div class="box">
-          <img class = "is4by3" src="<%= @challenge.challengeimage %>" alt="">
-          <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-      </div>
-
-      <div class="columns is-mobile">
-        <div class="column column-minus">
-          <div class="box">
-            <%= render 'solutions/form', solution:@solution%>
-          </div>
+          </article>
         </div>
       </div>
+      <div class="tile is-parent">
+        <article class="tile is-child box is-success">
+          <div class="content">
+            <p class="title">Rules</p>
+            <p class="subtitle">With even more content</p>
+            <div class="content">
+              <!-- Content -->
+            </div>
+          </div>
+        </article>
+      </div>
     </div>
+  </div>
 
+  <div class="container">
+    <div class="columns columns-entry">
+      <% @solutions.each do |solution| %>
+        <div class="column is-one-quarter">
+
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <% solution.image.each do |image| %>
+                <div><img src=<%= image %> alt="Image"></div>
+                <% end %>
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="content">
+                <b><%= solution.title %></b>
+                <br>
+                <%= solution.description %>
+              </div>
+              <div class='center'>
+              <%= form_for @challenge, :method => :PUT do |f| %>
+                <%= f.hidden_field :solution, :value => solution.id %>
+                <%= f.hidden_field :solved, :value => true %>
+                <%= f.submit 'Choose', :class => 'button'%>
+              <% end %>
+              </div>
+            </div>
+          </div>
+
+          </div>
+        <%end %>
+    </div>
   </div>
 </div>
-
-<script>
-
-document.getElementById("defaultOpen").click();
-function openlink(evt, link) {
-  var i,
-    tabcontent,
-    tablinks;
-
-  tabcontent = document.getElementsByClassName("tabcontent");
-
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" is-active", "");
-  }
-
-  document.getElementById(link).style.display = "block";
-  evt.currentTarget.className += " is-active";
-}
-
-</script>
