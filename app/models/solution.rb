@@ -1,6 +1,7 @@
 class Solution < ApplicationRecord
   belongs_to :user
-  belongs_to :challenge
+  has_many :challenges, through: :challenge_solutions
+
   mount_uploaders :image,ImageUploader
 
   serialize :image, JSON

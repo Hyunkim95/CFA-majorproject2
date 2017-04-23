@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get 'charges/create'
 
+  get 'challenge_solutions/index'
+
   root 'pages#developer_index'
 
   resources :projects
