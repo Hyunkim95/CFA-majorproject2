@@ -4,8 +4,6 @@ class Challenge < ApplicationRecord
   mount_uploader :challengeimage, ChallengeimageUploader
   after_create :pre_project
 
-
-
   def count_word(input)
     array = input.description.strip.downcase.split(/[^\w']+/)
     fillers = ['the', 'as', 'on', 'in', 'to', 'because']

@@ -15,6 +15,7 @@ gem 'carrierwave', '~> 1.0'
 gem 'stripe'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'mini_magick', '~> 4.3'
+gem 'engtagger'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
