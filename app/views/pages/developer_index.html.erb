@@ -42,12 +42,37 @@
           </nav>
         </div>
         <div class="column is-6">
-          <div class="box">
 
             <div class="panel-content clearfix">
               <div class="panelcontent" id="1">
                 <% @unsolved_challenges.each do |challenge| %>
                   <%= link_to challenge_path(challenge) do%>
+                  <div class="box">
+                    <article class="media">
+                      <div class="media-left">
+                        <figure class="image is-64x64">
+                          <img src="http://placehold.it/128x128" alt="Image">
+                        </figure>
+                      </div>
+                      <div class="media-content">
+                        <div class="content">
+                          <p>
+                            <strong>John Smith</strong> <small>@johnsmith</small> <small style="float:right;">31m</small>
+                            <br>
+                            <%= challenge.description %>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                <% end %>
+                <div class="spacer"></div>
+                <% end %>
+            </div>
+
+            <div class="panelcontent" id="2">
+              <% @challenge_in_progress.each do |challenge| %>
+                <%= link_to challenge_path(challenge) do%>
+                <div class="box">
                   <article class="media">
                     <div class="media-left">
                       <figure class="image is-64x64">
@@ -59,74 +84,69 @@
                         <p>
                           <strong>John Smith</strong> <small>@johnsmith</small> <small style="float:right;">31m</small>
                           <br>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
-                        </p>
+                          <%= challenge.description %>
                       </div>
                     </div>
                   </article>
-                <hr>
-                <% end %>
-                <% end %>
-            </div>
-
-            <div class="panelcontent" id="2">
-              <article class="media">
-                <div class="media-left">
-                  <figure class="image is-64x64">
-                    <img src="http://placehold.it/128x128" alt="Image">
-                  </figure>
                 </div>
-                <div class="media-content">
-                  <div class="content">
-                    <p>
-                      <strong>John Smith</strong> <small>@johnsmith</small> <small style="float:right;">31m</small>
-                      <br>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
-                    </p>
+              <% end %>
+              <div class="spacer"></div>
+              <% end %>
+          </div>
+
+          <div class="panelcontent" id="3">
+            <% @auto_pick.uniq.each do |challenge| %>
+              <%= link_to challenge_path(challenge) do%>
+              <div class="box">
+                <article class="media">
+                  <div class="media-left">
+                    <figure class="image is-64x64">
+                      <img src="http://placehold.it/128x128" alt="Image">
+                    </figure>
                   </div>
-                  <nav class="level">
-                    <div class="level-left">
-                      <a class="level-item">
-                        <span class="icon is-small"><i class="fa fa-reply"></i></span>
-                      </a>
-                      <a class="level-item">
-                        <span class="icon is-small"><i class="fa fa-retweet"></i></span>
-                      </a>
-                      <a class="level-item">
-                        <span class="icon is-small"><i class="fa fa-heart"></i></span>
-                      </a>
+                  <div class="media-content">
+                    <div class="content">
+                      <p>
+                        <strong>John Smith</strong> <small>@johnsmith</small> <small style="float:right;">31m</small>
+                        <br>
+                        <%= challenge.description %>
                     </div>
-                  </nav>
-                </div>
-              </article>
-
-              <article class="media">
-              <div class="media-left">
-                <figure class="image is-64x64">
-                  <img src="http://placehold.it/128x128" alt="Image">
-                </figure>
+                  </div>
+                </article>
               </div>
-              <div class="media-content">
-                <div class="content">
-                  <p>
-                    <strong>John Smith</strong> <small>@johnsmith</small> <small style="float:right;">31m</small>
-                    <br>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
-                  </p>
-                </div>
-              </div>
-              </article>
+            <% end %>
+            <div class="spacer"></div>
+            <% end %>
+        </div>
 
-            </div>
-            <div class="panelcontent" id="3">
-                hello2
-            </div>
+
             <div class="panelcontent" id="4">
-                hello3
-            </div>
+              <% @solved_challenges.each do |challenge| %>
+                <%= link_to challenge_path(challenge) do%>
+                <div class="box">
+                  <article class="media">
+                    <div class="media-left">
+                      <figure class="image is-64x64">
+                        <img src="http://placehold.it/128x128" alt="Image">
+                      </figure>
+                    </div>
+                    <div class="media-content">
+                      <div class="content">
+                        <p>
+                          <strong>John Smith</strong> <small>@johnsmith</small> <small style="float:right;">31m</small>
+                          <br>
+                          <%= challenge.description %>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              <% end %>
+              <div class="spacer"></div>
+              <% end %>
           </div>
 
           </div>
+
         </div>
         <div class="column is-3">
           <div class="box">

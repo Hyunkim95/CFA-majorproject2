@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   get 'charges/create'
 
-  root 'pages#developer_index'
+  root 'passthrough#index'
 
   resources :projects
 
