@@ -1,9 +1,12 @@
+
+
 class Challenge < ApplicationRecord
+
+
   belongs_to :user
   has_many :solutions, dependent: :destroy
   mount_uploader :challengeimage, ChallengeimageUploader
   after_create :pre_project
-
 
 
   def count_word(input)
@@ -28,7 +31,7 @@ class Challenge < ApplicationRecord
       end
 
       if count > 2
-          Solution.create(description: project.description, user_id: project.user.id, challenge_id:self.id)
+          Solution.create(description: project.description, user_id: project.user.id, challenge_id:self.id, auto:true)
       end
     end
   end

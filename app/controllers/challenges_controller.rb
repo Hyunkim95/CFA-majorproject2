@@ -10,8 +10,8 @@ class ChallengesController < ApplicationController
   # GET /challenges/1
   # GET /challenges/1.json
   def show
-    @solutions = Challenge.find(params[:id]).solutions
     @challenge = Challenge.find(params[:id])
+    @solutions = Challenge.find(params[:id]).solutions
     @solution = Solution.new
   end
 

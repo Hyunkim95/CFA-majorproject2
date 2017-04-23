@@ -11,6 +11,8 @@ gem 'rails', '~> 5.0.2'
 gem  'devise'
 gem "rolify"
 gem "bulma-rails", "~> 0.4.0"
+gem 'rubocop', require: false
+gem 'pundit'
 gem 'carrierwave', '~> 1.0'
 gem 'stripe'
 gem 'dotenv-rails', :groups => [:development, :test]
