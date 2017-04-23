@@ -17,6 +17,9 @@ ActiveRecord::Schema.define(version: 20170423142027) do
     t.datetime "updated_at", null: false
   end
 
+ActiveRecord::Schema.define(version: 20170423091622) do
+
+
   create_table "challenges", force: :cascade do |t|
     t.text     "description"
     t.datetime "created_at",                     null: false

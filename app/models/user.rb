@@ -7,4 +7,8 @@ class User < ApplicationRecord
   has_many :challenges, dependent: :destroy
   has_one :profile
   has_many :solutions, dependent: :destroy
+
+  lol
+
+  has_many :challenges_with_solutions, :through => :solutions, :source => :challenge
 end

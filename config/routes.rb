@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
   root 'pages#developer_index'
 
+  root 'passthrough#index'
+
+
   resources :projects
 
   resources :charges, only: [:new, :create]
