@@ -16,6 +16,7 @@
       <a class="nav-item is-tab is-hidden-tablet">Features</a>
       <a class="nav-item is-tab is-hidden-tablet">Pricing</a>
       <a class="nav-item is-tab is-hidden-tablet">About</a>
+
       <% if user_signed_in? %>
       <a><%= link_to 'Profile', profile_path(current_user.id), :class =>"nav-item is-tab"%></a>
       <a><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete,:class =>"nav-item is-tab"%></a>

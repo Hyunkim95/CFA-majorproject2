@@ -10,9 +10,7 @@ Rails.application.routes.draw do
 
   patch "challenges/:id/update" => "challenge_solution#update"
 
-  root 'pages#developer_index'
-
-  # root 'passthrough#index'
+  root 'passthrough#index'
 
   resources :projects
 
