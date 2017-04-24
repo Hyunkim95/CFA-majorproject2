@@ -21,7 +21,7 @@ class PagesController < ApplicationController
 
     @user_participated = []
 
-    Challenge.where(solved:true).each do |challenge|
+    Challenge.where(solved:true).reverse.each do |challenge|
       challenge.solutions.each do |solution|
         if solution.user_id == current_user.id
           @user_participated << challenge
