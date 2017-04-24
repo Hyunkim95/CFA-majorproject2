@@ -1,6 +1,6 @@
 class Solution < ApplicationRecord
   belongs_to :user
-  has_many :challenges, through: :challenge_solutions
+  belongs_to :challenge
 
   mount_uploaders :image,ImageUploader
 

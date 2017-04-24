@@ -10,15 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170423142027) do
+ActiveRecord::Schema.define(version: 20170423173915) do
 
   create_table "challenge_solutions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-ActiveRecord::Schema.define(version: 20170423091622) do
-
 
   create_table "challenges", force: :cascade do |t|
     t.text     "description"
@@ -28,6 +25,7 @@ ActiveRecord::Schema.define(version: 20170423091622) do
     t.string   "challengeimage"
     t.integer  "solution"
     t.boolean  "solved",         default: false
+    t.string   "tags"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -45,6 +43,7 @@ ActiveRecord::Schema.define(version: 20170423091622) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "image"
+    t.string   "tags"
     t.index ["challenge_id"], name: "index_projects_on_challenge_id"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
@@ -70,6 +69,12 @@ ActiveRecord::Schema.define(version: 20170423091622) do
     t.boolean  "auto"
     t.index ["challenge_id"], name: "index_solutions_on_challenge_id"
     t.index ["user_id"], name: "index_solutions_on_user_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "list",       default: "--- []\n"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "users", force: :cascade do |t|

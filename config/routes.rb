@@ -8,12 +8,11 @@ Rails.application.routes.draw do
 
   get 'charges/create'
 
-  get 'challenge_solutions/index'
+  patch "challenges/:id/update" => "challenge_solution#update"
 
   root 'pages#developer_index'
 
-  root 'passthrough#index'
-
+  # root 'passthrough#index'
 
   resources :projects
 
