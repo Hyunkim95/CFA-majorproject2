@@ -75,7 +75,7 @@
                         <div class="column is-9">
                           <p>
                             <a href="#">
-                              <strong><%= User.find(key).email %></strong>
+                              <strong><%= link_to User.find(key).email, profile_path(key) %></strong>
                             </a>
                           </p>
                           <%=link_to 'Go', profile_path(key) ,:class=>"button is-primary is-small" %>

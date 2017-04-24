@@ -4,6 +4,7 @@ class SolutionsController < ApplicationController
   # GET /solutions
   # GET /solutions.json
   def index
+    authorize Solution
     @solutions = Solution.all
   end
 
@@ -19,11 +20,14 @@ class SolutionsController < ApplicationController
 
   # GET /solutions/1/edit
   def edit
+    @solution = Solution.find(params[:id])
+    authorize @solution
   end
 
   # POST /solutions
   # POST /solutions.json
   def create
+    authorize @solution
     @solution = Solution.new(solution_params)
     @solution.user_id = current_user.id
     @solution.challenge_id = params[:id]
@@ -43,6 +47,7 @@ class SolutionsController < ApplicationController
   # PATCH/PUT /solutions/1
   # PATCH/PUT /solutions/1.json
   def update
+    authorize @solution
     respond_to do |format|
       if @solution.update(solution_params)
         format.html { redirect_to @solution, notice: 'Solution was successfully updated.' }
@@ -57,6 +62,7 @@ class SolutionsController < ApplicationController
   # DELETE /solutions/1
   # DELETE /solutions/1.json
   def destroy
+    authorize @solution
     @solution.destroy
     respond_to do |format|
       format.html { redirect_to solutions_url, notice: 'Solution was successfully destroyed.' }

@@ -4,6 +4,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
+    authorize Project
     @projects = Project.all
   end
 
@@ -14,16 +15,20 @@ class ProjectsController < ApplicationController
 
   # GET /projects/new
   def new
+    authorize Project
     @project = Project.new
   end
 
   # GET /projects/1/edit
   def edit
+    authorize @project
+    @project = Project.find(params[:id])
   end
 
   # POST /projects
   # POST /projects.json
   def create
+    authorize @project
     @project = Project.new(project_params)
     @project.user_id = current_user.id
 
@@ -56,6 +61,7 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
+    authorize @project
     @project.destroy
     respond_to do |format|
       format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }

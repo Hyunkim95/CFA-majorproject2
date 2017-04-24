@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def developer_index
+    authorize current_user
     @unsolved_challenges = Challenge.where(solved: false)
     @challenge = Challenge.new
     @challenge_in_progress = current_user.challenges_with_solutions.uniq.select{|challenge| challenge.solved == false}
@@ -39,6 +40,7 @@ class PagesController < ApplicationController
   end
 
   def business_owner_index
+    authorize current_user
     @unsolved_challenges = Challenge.where(solved: false).where(user_id: current_user.id)
   end
 end

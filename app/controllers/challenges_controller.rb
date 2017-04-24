@@ -4,6 +4,7 @@ class ChallengesController < ApplicationController
   # GET /challenges
   # GET /challenges.json
   def index
+    authorize Challenge
     @challenges = Challenge.all
   end
 
@@ -17,6 +18,7 @@ class ChallengesController < ApplicationController
 
   # GET /challenges/new
   def new
+    authorize Challenge
     @challenge = Challenge.new
   end
 

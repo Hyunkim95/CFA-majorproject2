@@ -1,21 +1,17 @@
-class ChallengePolicy < ApplicationPolicy
+class ChallengePolicy
   attr_reader :user, :challenge
 
   def initialize(user, challenge)
-    @user  = user
+    @user = user
     @challenge = challenge
   end
 
   def index?
-    user.has_role? :business_owner
-  end
-
-  def show?
-    user.has_role? :business_owner
+    false
   end
 
   def create?
-    user.has_role? :business_owner
+    false
   end
 
   def new?
@@ -23,15 +19,14 @@ class ChallengePolicy < ApplicationPolicy
   end
 
   def update?
-    user.has_role? :business_owner
+    false
   end
 
   def edit?
-    user.has_role? :business_owner
+    update?
   end
 
   def destroy?
-    user.has_role? :business_owner
+    false
   end
-
 end
