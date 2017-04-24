@@ -6,8 +6,9 @@ class ChallengeSolutionController < ApplicationController
     @solver = User.find(@solution.user_id)
 
     make_list(@challenge, @solution)
-
     @solver.tag_user(@challenge)
+
+    ModelMailer.successful_solution(@challenge, @solution).deliver
 
     redirect_to root_path
 
