@@ -12,8 +12,30 @@ class PagesController < ApplicationController
         end
       end
     end
-    
-    @solved_challenges = Challenge.where(solved: true)
+
+    if @unsolved_challenges.empty?
+       @not_participated = []
+    else
+      @not_participated = (@unsolved_challenges - @challenge_in_progress).slice(0..2)
+    end
+
+    @user_participated = []
+
+    Challenge.where(solved:true).each do |challenge|
+      challenge.solutions.each do |solution|
+        if solution.user_id == current_user.id
+          @user_participated << challenge
+        end
+      end
+    end
+
+    @solved_by_user = []
+
+    Challenge.where(solved: true).each do |challenge|
+      if Solution.find(challenge.solution).user_id == current_user.id
+        @solved_by_user << challenge
+      end
+    end
   end
 
   def business_owner_index
