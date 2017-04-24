@@ -121,9 +121,9 @@
 
 
             <div class="panelcontent" id="4">
-              <% @solved_challenges.each do |challenge| %>
+              <% @user_participated.each do |challenge| %>
                 <%= link_to challenge_path(challenge) do%>
-                <div class="box">
+                <div class="notification <%= green_red(@solved_by_user, challenge)%>">
                   <article class="media">
                     <div class="media-left">
                       <figure class="image is-64x64">
@@ -148,10 +148,13 @@
           </div>
 
         </div>
+
         <div class="column is-3">
           <div class="box">
             <p><span class="title is-5">Recommended Challenges</span>
             <hr>
+
+            <% @not_participated.each do |challenge| %>
             <div class="columns">
               <div class="column is-3 is-marginless">
                 <div class="image">
@@ -160,58 +163,16 @@
               </div>
               <div class="column is-9">
                 <p>
-                  <a href="#">
-                    <strong>John Smith</strong>
-                  </a>
+                  <%= challenge.description %>
                 </p>
-                <a class="button is-primary is-small">
-                  <span>
-                    + Follow
-                  </span>
-                </a>
+              <%= link_to 'Go', challenge_path(challenge), :class=>"button is-primary is-small"%>
               </div>
             </div>
-            <div class="columns">
-              <div class="column is-3 is-marginless">
-                <div class="image">
-                  <img src="https://placehold.it/200x200">
-                </div>
-              </div>
-              <div class="column is-9">
-                <p>
-                  <a href="#">
-                    <strong>Jane Smith</strong>
-                  </a>
-                </p>
-                <a class="button is-primary is-small">
-                  <span>
-                    + Follow
-                  </span>
-                </a>
-              </div>
-            </div>
-            <div class="columns">
-              <div class="column is-3 is-marginless">
-                <div class="image">
-                  <img src="https://placehold.it/200x200">
-                </div>
-              </div>
-              <div class="column is-9">
-                <p>
-                  <a href="#">
-                    <strong>Mike Scott</strong>
-                  </a>
-                </p>
-                <a class="button is-primary is-small">
-                  <span>
-                    + Follow
-                  </span>
-                </a>
-              </div>
-            </div>
+            <% end %>
 
           </div>
         </div>
+
       </div>
     </div>
   </section>

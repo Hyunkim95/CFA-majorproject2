@@ -53,26 +53,47 @@ end
 
 
 def make_list(challenge, solution)
-  require 'engtagger'
+    require 'engtagger'
 
-  tgr = EngTagger.new
-  challenge_text = challenge.description.downcase
-  solution_text = solution.description.downcase
+    tgr = EngTagger.new
+    challenge_text = challenge.description.downcase
+    solution_text = solution.description.downcase
 
-  c_tagged = tgr.add_tags(challenge_text)
-  s_tagged = tgr.add_tags(solution_text)
+    c_tagged = tgr.add_tags(challenge_text)
+    s_tagged = tgr.add_tags(solution_text)
 
-  c_nouns = tgr.get_nouns(c_tagged)
-  s_nouns = tgr.get_nouns(s_tagged)
+    c_nouns = tgr.get_nouns(c_tagged)
+    s_nouns = tgr.get_nouns(s_tagged)
 
-  #need to consider plurals
+    #need to consider plurals
 
-  #look for words that are the same
-  c_nouns.each do |word,value|
-    if s_nouns.include? word
-      array = Tag.first.list
-      array << word
-      Tag.first.update(list: array)
+    #look for words that are the same
+    c_nouns.each do |word,value|
+      if s_nouns.include? word
+        array = Tag.first.list
+        array << word
+        Tag.first.update(list: array)
+      end
     end
+end
+
+def recommended_users(challenge)
+  users = {}
+  challenge.solutions.each do |solution|
+    users[solution.user_id] = 0
+  end
+
+  challenge.tags.each do |tag|
+    users.each do |user_id,key1arecre|
+      count = 0
+      User.find(user_id).tags.each do |key,value|
+        if key == tag
+          count += value
+        end
+      end
+      users[user_id] += count
+    end
+
+    return users.sort_by{|k,v| v}
   end
 end

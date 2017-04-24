@@ -29,6 +29,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
+        current_user.tag_user(@project)
         format.html { redirect_to :back, notice: 'Project was successfully created.' }
         format.json { render :show, status: :created, location: @project }
       else
