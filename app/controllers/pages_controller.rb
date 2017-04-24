@@ -12,6 +12,7 @@ class PagesController < ApplicationController
         end
       end
     end
+    
     @solved_challenges = Challenge.where(solved: true)
   end
 
