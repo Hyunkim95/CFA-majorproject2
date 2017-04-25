@@ -1,5 +1,21 @@
 # Documentation
 
+##Instructions
+
+Clone the project
+
+git clone https://github.com/Hyunkim95/CFA-majorproject2.git
+
+change into the project directory, and install the dependencies:
+
+bundle install
+
+Run the app:
+
+rails s
+
+and access it through your browser: http://localhost:3000
+
 ## Problem Analysis
 
 Business Owners - with the extensive development of technology, it is becoming harder and harder for businesses to keep up with their rivals. To differentiate themselves from competitors or even to keep up; businesses need a technical solution or an application to innovate, automate and distinguish themselves.  Currently business owners/entrepeneurs use the following for developers:
