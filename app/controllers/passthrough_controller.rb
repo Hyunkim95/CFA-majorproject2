@@ -1,5 +1,6 @@
 class PassthroughController < ApplicationController
   def index
+    @user = current_user
     path = if current_user.has_role? (:developer)
       pages_developer_index_path
     elsif current_user.has_role? (:business_owner)
