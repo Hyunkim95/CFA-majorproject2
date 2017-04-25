@@ -74,7 +74,7 @@
       <% @solutions.each do |solution| %>
         <div class="column is-one-quarter">
 
-          <%= link_to solution_path(solution) do%>
+
           <div class="card">
             <div class="card-image">
               <figure class="image is-4by3">
@@ -97,9 +97,9 @@
                   <% end %>
               <% end %>
               </div>
+              <%=link_to "View", solution_path(solution) %>
             </div>
           </div>
-          <% end %>
 
           </div>
         <%end %>
