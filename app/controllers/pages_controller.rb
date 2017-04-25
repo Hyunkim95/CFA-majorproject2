@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   def developer_index
     authorize current_user
-    @unsolved_challenges = Challenge.where(solved: false)
+    @unsolved_challenges = Challenge.where(solved: false).reverse
     @challenge = Challenge.new
     @challenge_in_progress = current_user.challenges_with_solutions.uniq.select{|challenge| challenge.solved == false}
     @auto_pick = []

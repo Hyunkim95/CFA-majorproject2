@@ -9,24 +9,6 @@ class Project < ApplicationRecord
   serialize :image, JSON
   serialize :tags
 
-
-  def search_challenge
-    project_tag = self.tags
-
-    Challenge.all.each do |challenge|
-      count = 0
-      challenge.tags.each do |tag|
-        if project_tag.include? tag
-          count += 1
-        end
-      end
-
-      if count > 0
-        Solution.create(description: self.description, user_id: self.user.id, challenge_id: challenge.id, image:self.image, auto: true)
-      end
-    end
-  end
-
   def find_topic
     require 'engtagger'
 
@@ -46,6 +28,23 @@ class Project < ApplicationRecord
     end
 
     self.update(tags: topic)
+  end
+
+  def search_challenge
+    project_tag = self.tags
+
+    Challenge.all.each do |challenge|
+      count = 0
+      challenge.tags.each do |tag|
+        if project_tag.include? tag
+          count += 1
+        end
+      end
+
+      if count > 0
+        Solution.create(title:self.title, description: self.description, user_id: self.user.id, challenge_id: challenge.id, image:self.image, auto: true)
+      end
+    end
   end
 
 end

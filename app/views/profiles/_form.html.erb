@@ -1,0 +1,10 @@
+<%= form_for(profile) do |f|%>
+  <div class="field">
+    <%= f.label :experience, class:"label"%>
+    <%= f.text_field :experience, class:"input"%>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update",{:style=>'width:10em', :class => "button is-primary"}%>
+  </div>
+<% end %>

@@ -6,7 +6,7 @@
 
           <div class="tile is-parent">
             <article class="tile is-child box is-info">
-              <p class="title">Title</p>
+              <p class="title"><%= @challenge.title %></p>
               <figure class="image is-4by3">
                 <img src="<%= @challenge.challengeimage%>">
               </figure>
@@ -20,7 +20,7 @@
             </article>
             <article class="tile is-child box is-warning">
               <p class="title">Submission Deadline</p>
-              <p class="subtitle">Aligned with the right tile</p>
+                <%= @challenge.deadline %>
             </article>
           </div>
 
@@ -38,9 +38,8 @@
         <article class="tile is-child box is-success">
           <div class="content">
             <p class="title">Rules</p>
-            <p class="subtitle">With even more content</p>
             <div class="content">
-              <!-- Content -->
+              <%= @challenge.rules %>
             </div>
           </div>
         </article>
@@ -143,4 +142,5 @@
         modal.style.display = "none";
     }
   }
+
 </script>

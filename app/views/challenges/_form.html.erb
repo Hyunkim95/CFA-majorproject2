@@ -12,22 +12,33 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %>
-    <%= f.text_area :title %>
+    <%= f.label :title, class:'label'%>
+    <%= f.text_area :title, class:'input'%>
   </div>
 
   <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+    <%= f.label :description, class:'label'%>
+    <%= f.text_area :description, class:'input'%>
   </div>
 
   <div class="field">
+    <%= f.label :image, class:'label'%>
     <%= image_tag(challenge.challengeimage_url) if challenge.challengeimage? %>
     <%= f.file_field :challengeimage %>
     <%= f.hidden_field :challengeimage_cache %>
   </div>
 
+  <div class="field">
+    <%= f.label :rules, class:'label'%>
+    <%= f.text_area :rules, class:'input', rows: 10%>
+  </div>
+
+  <div class="field">
+    <%= f.label :deadline, class:'label'%>
+    <%= f.date_field :deadline, class:'input'%>
+  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Create",{:style=>'width:10em', :class => "button is-primary"}%>
   </div>
 <% end %>

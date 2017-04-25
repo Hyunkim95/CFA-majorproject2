@@ -5,29 +5,9 @@ class Challenge < ApplicationRecord
   belongs_to :user
   has_many :solutions
   serialize :tags
-  validates :title, :description, :presence => true
+  validates :title, :description, :rules, :deadline, :presence => true
   mount_uploader :challengeimage, ChallengeimageUploader
   after_create :pre_project
-
-
-
-  def pre_project
-    challenge_words = self.tags
-    Project.all.each do |project|
-      count = 0
-
-      project.tags.each do |word|
-        if challenge_words.include? word
-          count += 1
-        end
-      end
-
-      if count > 0
-          Solution.create(description: project.description, user_id: project.user.id, challenge_id:self.id, auto:true, image:project.image)
-      end
-
-    end
-  end
 
   def find_topic
     require 'engtagger'
@@ -48,6 +28,24 @@ class Challenge < ApplicationRecord
     end
 
     self.update(tags: topic)
+  end
+
+  def pre_project
+    challenge_words = self.tags
+    Project.all.each do |project|
+      count = 0
+      project.tags.each do |word|
+        if challenge_words.include? word
+          count += 1
+        end
+      end
+
+      if count > 0
+          a = Solution.create(title:self.title, description: project.description, user_id: project.user.id, challenge_id:self.id, auto:true, image:project.image)
+          print a
+      end
+
+    end
   end
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170425102147) do
+ActiveRecord::Schema.define(version: 20170425131714) do
 
   create_table "challenge_solutions", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20170425102147) do
     t.boolean  "solved",         default: false
     t.string   "tags"
     t.string   "title"
+    t.text     "rules"
+    t.date     "deadline"
   end
 
   create_table "conversations", force: :cascade do |t|
@@ -102,8 +104,9 @@ ActiveRecord::Schema.define(version: 20170425102147) do
 
   create_table "profiles", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+    t.text     "experience", default: "Enter resume info here"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 

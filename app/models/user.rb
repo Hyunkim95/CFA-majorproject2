@@ -12,7 +12,7 @@ class User < ApplicationRecord
   serialize :tags
   has_many :challenges_with_solutions, :through => :solutions, :source => :challenge
   after_create :rolez
-  after_create :add_name
+  after_create :add_name, :create_profile
 
   def tag_user(object)
     if !object.tags.empty?
@@ -39,6 +39,10 @@ class User < ApplicationRecord
     elsif self.role == "admin"
       self.add_role :admin
     end
+  end
+
+  def create_profile
+    Profile.create(user_id: self.id)
   end
 
   def add_name
