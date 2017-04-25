@@ -11,24 +11,24 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @project = Project.find(params[:id])
   end
 
   # GET /projects/new
   def new
-    authorize Project
     @project = Project.new
+     authorize Project
   end
 
   # GET /projects/1/edit
   def edit
-    authorize @project
     @project = Project.find(params[:id])
+    authorize @project
   end
 
   # POST /projects
   # POST /projects.json
   def create
-    authorize @project
     @project = Project.new(project_params)
     @project.user_id = current_user.id
 

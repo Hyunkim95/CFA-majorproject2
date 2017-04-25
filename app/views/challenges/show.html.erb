@@ -50,6 +50,28 @@
 
   <div class="container">
     <div class="columns columns-entry">
+
+      <% if current_user.has_role? (:developer) %>
+        <div class="column is-one-quarter" id="myBtn">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="http://toolboard.org/static/img/flaticon/file-storage.png" alt="">
+              </figure>
+            </div>
+
+            <div class="card-content has-text-centered">
+              <div class="content">
+                <br>
+                Add Solution
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+        <% end %>
+
       <% @solutions.each do |solution| %>
         <div class="column is-one-quarter">
 
@@ -86,4 +108,39 @@
   </div>
 </div>
 
-<%= render 'solutions/form', solution: @solution %>
+<div id="myModal" class="modal">
+
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <%= render 'solutions/form', solution: @solution %>
+  </div>
+
+</div>
+
+<script>
+// Get the modal
+  var modal = document.getElementById('myModal');
+
+  // Get the button that opens the modal
+  var btn = document.getElementById("myBtn");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks on the button, open the modal
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+  }
+</script>

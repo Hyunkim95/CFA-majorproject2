@@ -16,6 +16,7 @@ gem 'mailboxer'
 gem "bulma-rails", "~> 0.4.0"
 gem 'rubocop', require: false
 gem 'pundit'
+gem "factory_girl_rails", "~> 4.0"
 gem 'carrierwave', '~> 1.0'
 gem 'stripe'
 gem 'dotenv-rails', :groups => [:development, :test]
@@ -51,6 +52,7 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :development do
