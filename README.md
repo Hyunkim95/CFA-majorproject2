@@ -25,15 +25,15 @@ This will solve the developers problems as their past projects will help them ge
 ![Imgur](http://i.imgur.com/vAL3br3.jpg)
 ![Imgur](http://i.imgur.com/oPhkKrX.jpg)
 ## Wireframes
-[Imgur](http://i.imgur.com/d9WzCUM.jpg)
-[Imgur](http://i.imgur.com/Y8QTylz.jpg)
+![Imgur](http://i.imgur.com/d9WzCUM.jpg)
+![Imgur](http://i.imgur.com/Y8QTylz.jpg)
 ## User stories
-[Imgur](http://i.imgur.com/tpAwg9i.png)
+![Imgur](http://i.imgur.com/tpAwg9i.png)
 ## Entity Relationship Diagram
-[Imgur](http://i.imgur.com/ZZW5vIF.jpg)
+![Imgur](http://i.imgur.com/ZZW5vIF.jpg)
 ## Project Plan and Estimation
-[Imgur](http://i.imgur.com/QLfPktx.jpg)
-[Imgur](http://i.imgur.com/auWDmIX.jpg)
+![Imgur](http://i.imgur.com/QLfPktx.jpg)
+![Imgur](http://i.imgur.com/auWDmIX.jpg)
 
 ## Code Review
 Reviewed by @abazilla
@@ -42,8 +42,8 @@ At the moment, the tests are not organised into their separate models/controller
 
 ## Evidence of Code Quality
 Before
-[Imgur](http://i.imgur.com/TnsEbXf.png)
+![Imgur](http://i.imgur.com/TnsEbXf.png)
 After
-[Imgur](http://i.imgur.com/TnsEbXf.png)
+![Imgur](http://i.imgur.com/TnsEbXf.png)
 
 
