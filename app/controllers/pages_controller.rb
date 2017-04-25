@@ -37,12 +37,20 @@ class PagesController < ApplicationController
         @solved_by_user << challenge
       end
     end
+
+    Project.all.each do |project|
+      project.find_topic
+    end
   end
 
   def business_owner_index
     authorize current_user
     @challenge = Challenge.new
     @unsolved_challenges = Challenge.where(solved: false).where(user_id: current_user.id)
+
+    Project.all.each do |project|
+      project.find_topic
+    end
   end
 
   def admin
