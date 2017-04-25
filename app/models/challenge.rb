@@ -41,8 +41,7 @@ class Challenge < ApplicationRecord
       end
 
       if count > 0
-          a = Solution.create(title:self.title, description: project.description, user_id: project.user.id, challenge_id:self.id, auto:true, image:project.image)
-          print a
+          Solution.create(title:self.title, description: project.description, user_id: project.user.id, challenge_id:self.id, auto:true, image:project.image)
       end
 
     end
