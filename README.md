@@ -57,9 +57,7 @@ Reviewed by @abazilla
 At the moment, the tests are not organised into their separate models/controllers, but are rather in a single file, which is still readable thanks to rspec, but could be more DRY by splitting up the code. The Challenge/show page also has a hidden field that could be misleading to users/people reading the code. Lastly, there is some messy code that could be cleaned up (for example in the routes, which is unorganised). For the most part, Hyun’s code is clean and extremely functional.
 
 ## Evidence of Code Quality
-Before
-![Imgur](http://i.imgur.com/TnsEbXf.png)
-After
+
 ![Imgur](http://i.imgur.com/TnsEbXf.png)
 
 
