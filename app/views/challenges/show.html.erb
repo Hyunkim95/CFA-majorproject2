@@ -57,11 +57,10 @@
           <div class="card">
             <div class="card-image">
               <figure class="image is-4by3">
-                <% solution.image.each do |image| %>
-                <div><img src=<%= image %> alt="Image"></div>
-                <% end %>
+                <div><img src=<%= solution.image[0] %> alt="Image"></div>
               </figure>
             </div>
+
             <div class="card-content">
               <div class="content">
                 <b><%= solution.title %></b>

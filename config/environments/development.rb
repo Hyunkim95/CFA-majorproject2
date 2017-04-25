@@ -22,6 +22,8 @@ Rails.application.configure do
     :domain         => ENV["MAILGUN_DOMAIN_URL"],
   }
 
+  config.action_mailer.default_url_options = { :host => "dev.yourhost.com" }
+
   # Enable/disable caching. By default caching is disabled.
   if Rails.root.join('tmp/caching-dev.txt').exist?
     config.action_controller.perform_caching = true

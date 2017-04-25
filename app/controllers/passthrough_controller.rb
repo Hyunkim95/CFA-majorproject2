@@ -6,7 +6,6 @@ class PassthroughController < ApplicationController
       pages_business_owner_index_path
     else
     end
-
     redirect_to path
   end
 end

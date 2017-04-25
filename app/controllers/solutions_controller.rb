@@ -27,7 +27,6 @@ class SolutionsController < ApplicationController
   # POST /solutions
   # POST /solutions.json
   def create
-    authorize @solution
     @solution = Solution.new(solution_params)
     @solution.user_id = current_user.id
     @solution.challenge_id = params[:id]
