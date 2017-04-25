@@ -4,6 +4,7 @@ class Project < ApplicationRecord
   belongs_to :challenge
   mount_uploaders :image,ImageUploader
   after_create :search_challenge
+  validates :title, :description, :presence => true
 
   serialize :image, JSON
   serialize :tags
