@@ -2,8 +2,12 @@
     <div class="container">
       <div class="columns">
         <div class="column is-6">
-          <div class="image is-2by2">
-            <img src="<%= @solution.image[0] %>" alt="">
+          <div class="slick">
+            <% @solution.image.each do |image| %>
+            <div class="image is-2by2">
+              <img src="<%= image %>" alt="">
+            </div>
+            <% end %>
           </div>
         </div>
         <div class="column is-5 is-offset-1">
@@ -28,7 +32,7 @@
                 <td class="has-text-right">
                   <strong>Added</strong>
                 </td>
-                <td>3 days ago</td>
+                <td><%= time_ago_in_words(@solution.created_at) %> ago </td>
               </tr>
             </tbody>
           </table>

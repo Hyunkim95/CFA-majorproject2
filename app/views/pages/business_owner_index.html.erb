@@ -58,6 +58,8 @@
                       <div class="tile is-parent is-vertical">
                         <article class="tile is-child notification">
                           Total Entries
+                          <br>
+                          <%= challenge.solutions.count %>
                         </article>
                         <article class="tile is-child notification">
                           Submission Deadline
@@ -106,7 +108,7 @@
                      <%= solution.user.email %> has uploaded a solution
                      <br>
                      <%= truncate(solution.description, length:100)%>
-                     <small>1 hours ago</small>
+                     <small><%= time_ago_in_words(solution.created_at) %> ago </small>
 
                    </p>
                   <% end %>

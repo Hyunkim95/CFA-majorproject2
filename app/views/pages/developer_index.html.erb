@@ -57,7 +57,7 @@
                       <div class="media-content">
                         <div class="content">
                           <p>
-                            <strong>John Smith</strong> <small>@johnsmith</small> <small style="float:right;">31m</small>
+                            <strong><%= challenge.user.name %></strong> <small style="float:right;"><%= time_ago_in_words(challenge.created_at) %></small>
                             <br>
                             <%= challenge.description %>
                         </div>
@@ -82,7 +82,7 @@
                     <div class="media-content">
                       <div class="content">
                         <p>
-                          <strong>John Smith</strong> <small>@johnsmith</small> <small style="float:right;">31m</small>
+                          <strong><%= challenge.user.name %></strong> <small style="float:right;"><%= time_ago_in_words(challenge.created_at) %></small>
                           <br>
                           <%= challenge.description %>
                       </div>
@@ -107,7 +107,7 @@
                   <div class="media-content">
                     <div class="content">
                       <p>
-                        <strong>John Smith</strong> <small>@johnsmith</small> <small style="float:right;">31m</small>
+                        <strong><%= challenge.user.name %></strong> <small style="float:right;"><%= time_ago_in_words(challenge.created_at) %></small>
                         <br>
                         <%= challenge.description %>
                     </div>
@@ -133,7 +133,7 @@
                     <div class="media-content">
                       <div class="content">
                         <p>
-                          <strong>John Smith</strong> <small>@johnsmith</small> <small style="float:right;">31m</small>
+                          <strong><%= challenge.user.name %></strong> <small>@johnsmith</small> <small style="float:right;"><%= challenge.created_at %></small>
                           <br>
                           <%= challenge.description %>
                       </div>
