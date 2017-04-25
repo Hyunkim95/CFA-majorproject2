@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   rolify
+  acts_as_messageable
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -9,6 +10,8 @@ class User < ApplicationRecord
   has_many :solutions, dependent: :destroy
   serialize :tags
   has_many :challenges_with_solutions, :through => :solutions, :source => :challenge
+  after_create :rolez
+  after_create :add_name
 
   def tag_user(object)
     if !object.tags.empty?
@@ -25,5 +28,26 @@ class User < ApplicationRecord
 
       self.update(tags: h)
     end
+  end
+
+  def rolez
+    if self.role == "developer"
+      self.add_role :developer
+    elsif self.role == "business owner"
+      self.add_role :business_owner
+    else
+    end
+  end
+
+  def add_name
+    self.update(name: self.first_name + ' ' + self.last_name)
+  end
+
+  def mailboxer_name
+  self.name
+  end
+
+  def mailboxer_email(object)
+    self.email
   end
 end

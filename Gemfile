@@ -9,7 +9,10 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
 gem  'devise'
+gem 'chosen-rails'
+gem "jquery-slick-rails"
 gem "rolify"
+gem 'mailboxer'
 gem "bulma-rails", "~> 0.4.0"
 gem 'rubocop', require: false
 gem 'pundit'
