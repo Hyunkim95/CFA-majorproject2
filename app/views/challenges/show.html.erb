@@ -94,7 +94,7 @@
                   <%= form_for @challenge, :url => url_for(:controller => 'challenge_solution', :action => 'update'), :method => "patch" do |f| %>
                     <%= f.hidden_field :solution, :value => solution.id %>
                     <%= f.hidden_field :solved, :value => true %>
-                    <%= f.submit 'Choose', :class => 'button'%>
+                    <%= f.submit 'Choose', {:style=>'width:10em', :class => "button is-primary"}%>
                   <% end %>
               <% end %>
               </div>
