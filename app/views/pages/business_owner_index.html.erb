@@ -7,12 +7,22 @@
             <p class="panel-heading">
               Challenges
             </p>
+
             <div class="panel-block">
               <p class="control has-icons-left">
                 <input class="input is-small" type="text" placeholder="Search">
                 <span class="icon is-small is-left">
                   <i class="fa fa-search"></i>
                 </span>
+              </p>
+            </div>
+
+            <div class="panel-block" id="myBtn">
+              <p class="control has-icons-left">
+                <span class="icon is-small is-left">
+                  <i class="fa fa-plus"></i>
+                </span>
+                Add Challenge
               </p>
             </div>
 
@@ -24,6 +34,7 @@
               <%= challenge.description %>
             </a>
             <% end %>
+
           </nav>
         </div>
 
@@ -47,6 +58,8 @@
                       <div class="tile is-parent is-vertical">
                         <article class="tile is-child notification">
                           Total Entries
+                          <br>
+                          <%= challenge.solutions.count %>
                         </article>
                         <article class="tile is-child notification">
                           Submission Deadline
@@ -95,7 +108,7 @@
                      <%= solution.user.email %> has uploaded a solution
                      <br>
                      <%= truncate(solution.description, length:100)%>
-                     <small>1 hours ago</small>
+                     <small><%= time_ago_in_words(solution.created_at) %> ago </small>
 
                    </p>
                   <% end %>
@@ -110,6 +123,44 @@
   </div>
 
   </section>
+
+  <div id="myModal" class="modal">
+
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <%= render 'challenges/form', challenge: @challenge %>
+    </div>
+
+  </div>
+
+
+  <script>
+  // Get the modal
+    var modal = document.getElementById('myModal');
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the button, open the modal
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+    }
+  </script>
 
   <script>
 

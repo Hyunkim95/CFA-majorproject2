@@ -21,7 +21,7 @@ class Project < ApplicationRecord
       end
 
       if count > 0
-        Solution.create(description: self.description, user_id: self.user.id, challenge_id: challenge.id)
+        Solution.create(description: self.description, user_id: self.user.id, challenge_id: challenge.id, image:self.image, auto: true)
       end
     end
   end

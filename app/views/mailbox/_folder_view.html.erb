@@ -1,12 +1,13 @@
-<div class="row">
+<div class="container">
   <div class="spacer"></div>
-  <div class="col-md-12">
+  <div class="column is-12">
     <!-- we'll configure this to compose new conversations later -->
-     <%= link_to "Compose", new_conversation_path, class: "btn btn-success" %>
+     <%= link_to 'Compose', new_conversation_path, {:style=>'width:100px', :class => "button is-primary"}%>
     <div class="spacer"></div>
   </div>
 
-  <div class="col-md-4">
+  <div class="columns has-text-centered">
+  <div class="column is-4">
     <div class="panel panel-default">
       <div class="panel-body">
         <%= render 'mailbox/folders' %>
@@ -14,7 +15,7 @@
     </div>
   </div>
 
-  <div class="col-md-8">
+  <div class="column is-8 box">
     <div class="panel panel-default">
       <div class="panel-body">
         <% if is_conversation %>
@@ -24,6 +25,7 @@
         <% end %>
       </div>
     </div>
+  </div>
   </div>
 
 </div>

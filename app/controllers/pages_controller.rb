@@ -41,6 +41,7 @@ class PagesController < ApplicationController
 
   def business_owner_index
     authorize current_user
+    @challenge = Challenge.new
     @unsolved_challenges = Challenge.where(solved: false).where(user_id: current_user.id)
   end
 end
