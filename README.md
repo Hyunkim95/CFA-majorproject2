@@ -22,8 +22,8 @@ This will solve the busienss owners problems as they are given a plethora of sol
 This will solve the developers problems as their past projects will help them generate income in a form of passive income, they are also given a platform to develop solutions to random challenges that might interest them.  It is also a form of portfolio, allowing the developers to be approached by potential recruiters. 
 
 ## Workflow for users
-[Imgur](http://i.imgur.com/vAL3br3.jpg)
-[Imgur](http://i.imgur.com/oPhkKrX.jpg)
+![Imgur](http://i.imgur.com/vAL3br3.jpg)
+![Imgur](http://i.imgur.com/oPhkKrX.jpg)
 ## Wireframes
 [Imgur](http://i.imgur.com/d9WzCUM.jpg)
 [Imgur](http://i.imgur.com/Y8QTylz.jpg)
