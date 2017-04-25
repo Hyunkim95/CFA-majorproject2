@@ -17,16 +17,12 @@ gem 'mailboxer'
 gem "bulma-rails", "~> 0.4.0"
 gem 'rubocop', require: false
 gem 'pundit'
-gem "factory_girl_rails", "~> 4.0"
 gem 'carrierwave', '~> 1.0'
 gem 'stripe'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'mini_magick', '~> 4.3'
 gem 'engtagger'
 # Use sqlite3 as the database for Active Record
-group :development, :test do
-  gem 'sqlite3'
-end
 
 group :production do
   gem 'pg'
@@ -34,6 +30,7 @@ end
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 gem 'omniauth-github'
+ gem 'test-unit'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -62,11 +59,13 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'faker'
   gem 'rspec-rails', '~> 3.5'
+  gem "factory_girl_rails", "~> 4.0"
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
+  gem 'sqlite3'
   gem 'listen', '~> 3.0.5'
   gem 'guard-livereload', '~> 2.5', require: false
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
