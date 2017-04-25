@@ -5,6 +5,7 @@ class Challenge < ApplicationRecord
   belongs_to :user
   has_many :solutions
   serialize :tags
+  validates :title, :description, :presence => true
   mount_uploader :challengeimage, ChallengeimageUploader
   after_create :pre_project
 

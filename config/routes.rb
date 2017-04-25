@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get 'pages/business_owner_index'
 
+  get 'pages/admin'
+
   get 'charges/create'
 
   patch "challenges/:id/update" => "challenge_solution#update"
@@ -19,6 +21,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
 
   resources :projects
+
 
   resources :conversations do
     member do
