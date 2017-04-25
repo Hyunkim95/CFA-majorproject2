@@ -7,6 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :challenges, dependent: :destroy
   has_one :profile
+  has_many :projects, dependent: :destroy
   has_many :solutions, dependent: :destroy
   serialize :tags
   has_many :challenges_with_solutions, :through => :solutions, :source => :challenge
@@ -35,7 +36,8 @@ class User < ApplicationRecord
       self.add_role :developer
     elsif self.role == "business owner"
       self.add_role :business_owner
-    else
+    elsif self.role == "admin"
+      self.add_role :admin
     end
   end
 

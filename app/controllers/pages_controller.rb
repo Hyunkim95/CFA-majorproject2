@@ -44,4 +44,9 @@ class PagesController < ApplicationController
     @challenge = Challenge.new
     @unsolved_challenges = Challenge.where(solved: false).where(user_id: current_user.id)
   end
+
+  def admin
+    authorize current_user
+    @users = User.all
+  end
 end

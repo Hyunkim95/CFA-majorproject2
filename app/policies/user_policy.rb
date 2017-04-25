@@ -13,4 +13,8 @@ class UserPolicy
   def business_owner_index?
     user.has_role? :business_owner
   end
+
+  def admin?
+    user.has_role? :admin
+  end
 end

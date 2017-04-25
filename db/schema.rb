@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170424135213) do
+ActiveRecord::Schema.define(version: 20170425102147) do
 
   create_table "challenge_solutions", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20170424135213) do
     t.integer  "solution"
     t.boolean  "solved",         default: false
     t.string   "tags"
+    t.string   "title"
   end
 
   create_table "conversations", force: :cascade do |t|
