@@ -7,7 +7,7 @@ class ProjectPolicy
   end
 
   def index?
-    false
+    user.has_role? :admin
   end
 
   def create?
@@ -19,14 +19,14 @@ class ProjectPolicy
   end
 
   def update?
-    (user.has_role? (:developer) && current_user.id == @project.user_id) or user.has_role? :admin
+    (user.has_role? (:developer) && @user.id == @project.user_id) or user.has_role? :admin
   end
 
   def edit?
-    (user.has_role? (:developer) && current_user.id == @project.user_id) or user.has_role? :admin
+    (user.has_role? (:developer) && @user.id == @project.user_id) or user.has_role? :admin
   end
 
   def destroy?
-    (user.has_role? (:developer) && current_user.id == @project.user_id) or user.has_role? :admin
+    (user.has_role? (:developer) && @user.id == @project.user_id) or user.has_role? :admin
   end
 end

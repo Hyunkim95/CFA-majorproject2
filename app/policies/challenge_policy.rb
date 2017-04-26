@@ -7,7 +7,7 @@ class ChallengePolicy
   end
 
   def index?
-    false
+    user.has_role? :admin
   end
 
   def create?
@@ -19,7 +19,7 @@ class ChallengePolicy
   end
 
   def update?
-    false
+    user.has_role? :admin
   end
 
   def edit?

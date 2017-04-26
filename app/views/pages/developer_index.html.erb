@@ -163,7 +163,7 @@
               </div>
               <div class="column is-9">
                 <p>
-                  <%= challenge.description %>
+                  <%= truncate(challenge.description, length: 40)%>
                 </p>
               <%= link_to 'Go', challenge_path(challenge), :class=>"button is-primary is-small"%>
               </div>
