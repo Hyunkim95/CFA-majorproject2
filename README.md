@@ -1,6 +1,6 @@
 # Documentation
 
-## Instructions
+## Instruction
 
 Clone the project
 
