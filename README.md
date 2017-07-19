@@ -1,5 +1,7 @@
 # Documentation
 
+<img src="http://i.imgur.com/G8nZjXg.png" >
+
 ## Instruction
 
 Clone the project
